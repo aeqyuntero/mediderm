@@ -1,0 +1,32 @@
+<div class="container text-center mt-5 mb-5">
+
+    <img src="/assets/images/login.png">
+    <hr>
+
+    <div class="form-group row">
+
+        <label class="col col-form-label">Usuario: </label>
+        <div class="col">
+
+            <input class="form-control" type="text" placeholder="Usuario" formControlName="usuario">
+
+        </div>
+
+    </div>
+    <br>
+
+    <div class="form-group row">
+
+        <label class="col col-form-label">Contraseña: </label>
+        <div class="col">
+
+            <input class="form-control" type="passwowrd" placeholder="Contraseña" formControlName="contraseña">
+
+        </div>
+
+    </div>
+    <br>
+
+    <button class="btn btn-outline-primary" type="button" name="ingresar" [routerLink]="['inicio']">Ingresar</button>
+
+</div>

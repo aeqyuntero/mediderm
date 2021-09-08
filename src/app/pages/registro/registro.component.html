@@ -1,0 +1,84 @@
+<div class="container text-center mt-5 mb-5">
+
+    <img src="/assets/images/login.png">
+    <hr>
+
+    <div class="form-group row me-5">
+
+        <label class="col col-form-label">Nombres: </label>
+        <div class="col">
+
+            <input class="form-control" type="text" placeholder="Nombres" formControlName="nombre">
+
+        </div>
+        <label class="col col-form-label">Apellidos: </label>
+        <div class="col">
+
+            <input class="form-control" type="text" placeholder="Apellidos" formControlName="apellido">
+
+        </div>
+
+    </div>
+    <br>
+
+    <div class="form-group row me-5">
+
+        <label class="col col-form-label">Correo: </label>
+        <div class="col">
+
+            <input class="form-control" type="text" placeholder="Correo" formControlName="correo">
+
+        </div>
+        <label class="col col-form-label">Fecha de Nacimiento: </label>
+        <div class="col">
+
+            <input class="form-control" type="date" formControlName="fechanacimiento">
+
+        </div>
+
+    </div>
+    <br>
+
+    <div class="form-group row me-5">
+
+        <label class="col col-form-label">Teléfono: </label>
+        <div class="col">
+
+            <input class="form-control" type="text" placeholder="ej. 1234567890" formControlName="telefono">
+
+        </div>
+        <label class="col col-form-label">Contraseña: </label>
+        <div class="col">
+
+            <input class="form-control" type="password" placeholder="********" formControlName="constrasena">
+
+        </div>
+
+    </div>
+    <br>
+
+    <div class="form-group row me-5">
+
+        <label class="col col-form-label">Sexo: </label>
+        <div class="col">
+
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Selecciona el Sexo</option>
+                <option value="M">Masculino</option>
+                <option value="F">Femenino</option>
+            </select>
+
+        </div>
+        <label class="col col-form-label">Confirmar Contraseña: </label>
+        <div class="col">
+
+            <input class="form-control" type="password" placeholder="********" formControlName="cocontrasena">
+
+        </div>
+
+    </div>
+    <br>
+
+    <button class="btn btn-outline-primary" type="button" name="ingresar" [routerLink]="['inicio']">Registrarse</button>
+
+</div>

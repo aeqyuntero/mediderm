@@ -1,0 +1,55 @@
+<nav name="navbar" class="navbar navbar-dark navbar-expand-lg" style="background-color: #0F1364">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="/assets/images/mediderm.png" alt="" width="101,9" height="74,91">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" [routerLink]="['sedes']" id="navbarDropdownMenuLink"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sedes
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" [routerLink]="['sedes']">Sede 1</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['sedes']">Sede 2</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['sedes']">Sede 3</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Servicios
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" [routerLink]="['servicios']">Servicio 1</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['servicios']">Servicio 2</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['servicios']">Servicio 3</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" [routerLink]="['medicos']" id="navbarDropdownMenuLink"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Medicos
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" [routerLink]="['medicos']">Medico 1</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['medicos']">Medico 2</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['medicos']">Medico 3</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contacto</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <button class="btn btn-outline-danger me-2" [routerLink]="['registro']" type="button">Sign Up</button>
+                <button class="btn btn-outline-primary" [routerLink]="['login']" type="button">Log In</button>
+            </div>
+        </div>
+    </div>
+</nav>
