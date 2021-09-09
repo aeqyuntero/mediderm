@@ -50,8 +50,19 @@
                 </li>
             </ul>
             <div class="d-flex">
-                <button class="btn btn-outline-danger me-2" [routerLink]="['registro']" type="button">Sign Up</button>
-                <button class="btn btn-outline-primary" [routerLink]="['login']" type="button">Log In</button>
+                <div id="iniciar"> 
+                    <button class="btn btn-outline-danger me-2" [routerLink]="['registro']" type="button">Sign Up</button>
+                    <button id="ocultar-mostrar" class="btn btn-outline-primary" [routerLink]="['login']" type="button">Log In</button>
+                </div>
+                <div id="iniciado" style="display: none;" class="dropdown">
+                    <button class="btn btn-primary dropdown-toogle" type="button" data-bs-toggle="dropdown">
+                        <img src="/assets/images/login.png" width="30" height="30">
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">historia</a>
+                        <a [routerLink]="['inicio']" class="dropdown-item" (click)="funcion()">salir</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

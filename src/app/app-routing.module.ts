@@ -9,6 +9,7 @@ import { MedicosComponent } from './pages/medicos/medicos.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { AgendaCitaComponent } from './pages/agenda-cita/agenda-cita.component';
 import { EditarUsuarioComponent } from './pages/editar-usuario/editar-usuario.component';
+import { HistoriaMedicaComponent } from './pages/historia-medica/historia-medica.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'servicios', component: ServiciosComponent },
   {path: 'agendacita', component: AgendaCitaComponent },
   {path: 'medicos', component: MedicosComponent},
+  {path: 'historia medica', component: HistoriaMedicaComponent},
   {path: '**', pathMatch: 'full', redirectTo: 'inicio'},
 ];
 
