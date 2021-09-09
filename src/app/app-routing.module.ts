@@ -8,11 +8,13 @@ import { SedesComponent } from './pages/sedes/sedes.component';
 import { MedicosComponent } from './pages/medicos/medicos.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { AgendaCitaComponent } from './pages/agenda-cita/agenda-cita.component';
+import { EditarUsuarioComponent } from './pages/editar-usuario/editar-usuario.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'inicio', component: InicioComponent},
   {path: 'registro', component: RegistroComponent},
+  {path: 'editar', component: EditarUsuarioComponent},
   {path: 'contacto', component: ContactoComponent},
   {path: 'sedes', component: SedesComponent },
   {path: 'servicios', component: ServiciosComponent },

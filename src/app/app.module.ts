@@ -14,6 +14,7 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
 import { MedicosComponent } from './pages/medicos/medicos.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { AgendaCitaComponent } from './pages/agenda-cita/agenda-cita.component';
+import { EditarUsuarioComponent } from './pages/editar-usuario/editar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AgendaCitaComponent } from './pages/agenda-cita/agenda-cita.component';
     ContactoComponent,
     MedicosComponent,
     ServiciosComponent,
-    AgendaCitaComponent
+    AgendaCitaComponent,
+    EditarUsuarioComponent
   ],
   imports: [
     BrowserModule,
