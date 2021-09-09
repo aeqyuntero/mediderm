@@ -1,6 +1,6 @@
 <nav name="navbar" class="navbar navbar-dark navbar-expand-lg" style="background-color: #0F1364">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" [routerLink]="['inicio']">
             <img src="/assets/images/mediderm.png" alt="" width="101,9" height="74,91">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -21,7 +21,7 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                    <a class="nav-link dropdown-toggle" [routerLink]="['servicios']" id="navbarDropdownMenuLink" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Servicios
                     </a>
