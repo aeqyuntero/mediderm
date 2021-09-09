@@ -1,11 +1,10 @@
 <div class="row">
-    <div class="col-4">
-        <img src="/assets/images/login.png" class="align-self-end">
+    <div class="col-1">
         <div class="list-group" id="list-tab" role="tablist">
-            <label class="btn btn-secondary active">
+            <label class="btn btn-secondary active" (click)="funcionDivHistoria()">
                 Datos
             </label>
-            <label class="btn btn-secondary">
+            <label class="btn btn-secondary" (click)="funcionDivInfo()">
                 Historia Clínica
             </label>
             <label class="btn btn-secondary">
@@ -17,6 +16,82 @@
         </div>
     </div>
     <div id="info" class="col">
+        <div id="contenedor datos" class="container text-center mt-5 mb-5">
+
+            <img src="/assets/images/login.png">
+            <hr>
         
+            <div class="form-group row me-5">
+        
+                <label class="col col-form-label">Nombres: </label>
+                <div class="col">
+        
+                    <label for="">Pepito Alfredo</label>
+        
+                </div>
+                <label class="col col-form-label">Apellidos: </label>
+                <div class="col">
+        
+                    <label for="">Jimenes Suarez</label>
+        
+                </div>
+        
+            </div>
+            <br>
+        
+            <div class="form-group row me-5">
+        
+                <label class="col col-form-label">Correo: </label>
+                <div class="col">
+        
+                    algo123@gmail.com
+        
+                </div>
+                <label class="col col-form-label">Fecha de Nacimiento: </label>
+                <div class="col">
+        
+                    <label for="">29/02/2000</label>
+        
+                </div>
+        
+            </div>
+            <br>
+        
+            <div class="form-group row me-5">
+        
+                <label class="col col-form-label">Teléfono: </label>
+                <div class="col">
+        
+                    <label for="">+57 3756745346</label>
+        
+                </div>
+                <label class="col col-form-label"></label>
+                <div class="col">
+        
+                </div>
+        
+            </div>
+            <br>
+        
+            <div class="form-group row me-5">
+        
+                <label class="col col-form-label">Sexo: </label>
+                <div class="col">
+        
+                    Indefinido
+        
+                </div>
+                <label class="col col-form-label"></label>
+                <div class="col">
+        
+                   
+        
+                </div>
+        
+            </div>
+        </div>
+    </div>
+    <div id="historia">
+
     </div>
 </div>
