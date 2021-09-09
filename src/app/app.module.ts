@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { DateTimePickerModule } from "@syncfusion/ej2-angular-calendars";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { SedesComponent } from './pages/sedes/sedes.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { MedicosComponent } from './pages/medicos/medicos.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
+import { AgendaCitaComponent } from './pages/agenda-cita/agenda-cita.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
     SedesComponent,
     ContactoComponent,
     MedicosComponent,
-    ServiciosComponent
+    ServiciosComponent,
+    AgendaCitaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    DateTimePickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
