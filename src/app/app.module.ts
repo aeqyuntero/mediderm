@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { DateTimePickerModule } from "@syncfusion/ej2-angular-calendars";
 
+//Páginas
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -19,6 +20,14 @@ import { HistoriaMedicaComponent } from './pages/historia-medica/historia-medica
 import { HttpClientModule } from '@angular/common/http';
 import { MedicoComponent } from './pages/medico/medico.component';
 
+
+//Servicios
+import { ConexionBDService } from './services/conexion-bd.service';
+
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -41,9 +50,19 @@ import { MedicoComponent } from './pages/medico/medico.component';
     BrowserModule,
     AppRoutingModule,
     DateTimePickerModule,
+<<<<<<< HEAD
     HttpClientModule
+=======
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    ConexionBDService
+>>>>>>> 2243ca7d0c13d592c830b11b9e114585eb954cd3
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

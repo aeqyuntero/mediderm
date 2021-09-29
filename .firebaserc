@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "clinica-dermatologica": {
+      "hosting": {
+        "mediderm": [
+          "clinica-dermatologica"
+        ]
+      }
+    }
+  }
+}
