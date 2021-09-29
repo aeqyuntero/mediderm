@@ -17,6 +17,11 @@ import { AgendaCitaComponent } from './pages/agenda-cita/agenda-cita.component';
 import { EditarUsuarioComponent } from './pages/editar-usuario/editar-usuario.component';
 import { HistoriaMedicaComponent } from './pages/historia-medica/historia-medica.component';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +41,10 @@ import { HistoriaMedicaComponent } from './pages/historia-medica/historia-medica
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DateTimePickerModule
+    DateTimePickerModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
