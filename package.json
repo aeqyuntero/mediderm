@@ -21,14 +21,10 @@
     "@angular/router": "~12.1.0",
     "@syncfusion/ej2-angular-calendars": "^19.2.60",
     "date-fns": "^2.23.0",
-    "firebase": "^9.1.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4",
-<<<<<<< HEAD
-=======
     "firebase": "^9.0.0",
->>>>>>> 2243ca7d0c13d592c830b11b9e114585eb954cd3
     "rxfire": "^6.0.0"
   },
   "devDependencies": {

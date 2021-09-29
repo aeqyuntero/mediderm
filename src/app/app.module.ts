@@ -50,16 +50,13 @@ import { environment } from '../environments/environment';
     BrowserModule,
     AppRoutingModule,
     DateTimePickerModule,
-<<<<<<< HEAD
-    HttpClientModule
-=======
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
     AngularFirestoreModule
   ],
   providers: [
     ConexionBDService
->>>>>>> 2243ca7d0c13d592c830b11b9e114585eb954cd3
   ],
   bootstrap: [
     AppComponent
