@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { DateTimePickerModule } from "@syncfusion/ej2-angular-calendars";
 
+//Páginas
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -16,6 +17,9 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { AgendaCitaComponent } from './pages/agenda-cita/agenda-cita.component';
 import { EditarUsuarioComponent } from './pages/editar-usuario/editar-usuario.component';
 import { HistoriaMedicaComponent } from './pages/historia-medica/historia-medica.component';
+
+//Servicios
+import { ConexionBDService } from './services/conexion-bd.service';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
@@ -46,7 +50,11 @@ import { environment } from '../environments/environment';
     AngularFireAnalyticsModule,
     AngularFirestoreModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    ConexionBDService
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
