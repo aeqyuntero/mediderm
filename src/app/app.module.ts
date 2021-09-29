@@ -22,7 +22,6 @@ import { MedicoComponent } from './pages/medico/medico.component';
 
 
 //Servicios
-import { ConexionBDService } from './services/conexion-bd.service';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
@@ -55,9 +54,7 @@ import { environment } from '../environments/environment';
     AngularFireAnalyticsModule,
     AngularFirestoreModule
   ],
-  providers: [
-    ConexionBDService
-  ],
+  providers: [],
   bootstrap: [
     AppComponent
   ]
