@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../dataservices/data.service';
+import { medicosmodel } from '../medicos/Models/medicosmodel';
 
 @Component({
   selector: 'app-medicos',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MedicosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _data: DataService) { }
 
+  medicos: medicosmodel[] = [];
   ngOnInit(): void {
-  }
+    this._data.getMedicoslista().subscribe(data => {
+      this.medicos = data ;
+      console.log('A');
+      console.log(data);
+      console.log('FF');
+    });
 
+}
 }

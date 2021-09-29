@@ -16,6 +16,9 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { AgendaCitaComponent } from './pages/agenda-cita/agenda-cita.component';
 import { EditarUsuarioComponent } from './pages/editar-usuario/editar-usuario.component';
 import { HistoriaMedicaComponent } from './pages/historia-medica/historia-medica.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MedicoComponent } from './pages/medico/medico.component';
+
 
 @NgModule({
   declarations: [
@@ -31,12 +34,14 @@ import { HistoriaMedicaComponent } from './pages/historia-medica/historia-medica
     ServiciosComponent,
     AgendaCitaComponent,
     EditarUsuarioComponent,
-    HistoriaMedicaComponent
+    HistoriaMedicaComponent,
+    MedicoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DateTimePickerModule
+    DateTimePickerModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

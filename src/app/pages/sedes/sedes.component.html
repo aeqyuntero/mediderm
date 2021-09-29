@@ -1,62 +1,23 @@
-<div class="card mt-4 ml-4 mr-4 mb-4">
+<div class="card mt-4 ml-4 mr-4 mb-4" *ngFor="let item of sedes">
 
-    <div class="row g-0">
+    <div class="row g-0 ">
         <div class="col-md-8 ">
             <div class="card-body ml-4">
-                <h5 class="card-title">Sede Calle Falsa</h5>
-                <p class="card-text"> ELorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took
-                    a galley of type and scrambled it to make a type specimen book. It has survived not only five
-                    centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                    popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
-                    more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
-                    Ipsum</p>
-                <p class="card-text"><small class="text-muted">Calle falsa 123</small></p>
-                <a href="#" class="btn btn-danger">Ir en Google maps </a>
+                <h5 class="card-title">{{item.Nombre}}</h5>
+                <p class="card-text"> {{item.Descripcion}}</p>
+                <p class="card-text"><small class="text-muted">Dirección: {{item.Direccion}}            Horario: {{item.Horarios}}</small></p>
+                <p class="card-text"><small class="text-muted">Telefono: {{item.Telefono}}</small></p>
+
+                <a [href]="item.Maps" class="btn btn-danger">Ir en Google maps </a>
             </div>
         </div>
         <div class="col-md-4">
-            <img src="https://valledellili.org/wp-content/uploads/2020/09/mapa_sede-Limonar-Fundacion-Valle-del-Lili.png"
-                class="card-img-top-map mt-2 mb-2" alt="item">
+            <img [src]="item.Imagen" class="card-img-top-map mt-2 mb-2" alt="item">
         </div>
     </div>
-
 
     <div>
 
     </div>
-
-
-</div>
-
-
-<div class="card mt-4 ml-4 mr-4 mb-4">
-
-    <div class="row g-0">
-        <div class="col-md-8 ">
-            <div class="card-body ml-4">
-                <h5 class="card-title">Sede Calle Real</h5>
-                <p class="card-text"> ELorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took
-                    a galley of type and scrambled it to make a type specimen book. It has survived not only five
-                    centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                    popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
-                    more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
-                    Ipsum</p>
-                <p class="card-text"><small class="text-muted">Calle real 123</small></p>
-                <a href="#" class="btn btn-danger">Ir en Google maps </a>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <img src="https://valledellili.org/wp-content/uploads/2020/09/mapa_sede-Limonar-Fundacion-Valle-del-Lili.png"
-                class="card-img-top-map mt-2 mb-2" alt="item">
-        </div>
-    </div>
-
-
-    <div>
-
-    </div>
-
 
 </div>
