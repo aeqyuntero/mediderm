@@ -23,7 +23,8 @@ export class RegistroComponent implements OnInit {
 
   };
   
-  constructor(private db: ConexionBDService,
+  constructor(private data: DataService,
+              private db: ConexionBDService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -45,13 +46,17 @@ export class RegistroComponent implements OnInit {
 
     let id;
 
-    this.db.set("Usuarios", usuario);
+    this.data.registrarUsuario(usuario).subscribe(resp => {
+      id = resp;
+      this.login(id);
+    });
+    
 
   }
 
   login(id: string){
 
-    this.db.getByQuery('Usuarios', '$key', id).subscribe((resp: any) => {
+    this.data.obtenerUsuario(id).subscribe((resp: any) => {
       localStorage.setItem('token', id);
       localStorage.setItem('usuario', resp.nomUsuario);
     });
