@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MedicosComponent } from 'src/app/pages/medicos/medicos.component';
+import { ConexionBDService } from 'src/app/services/conexion-bd.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +10,14 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private db: ConexionBDService) { }
 
+  medicos: any[] = [];
   ngOnInit(): void {
-  }
+    this.db.getList("/Medicos").valueChanges().subscribe(data => {
+      this.medicos = data ;
+    });
+}
   
   funcion(): void {
     let x = document.getElementById("iniciado");
