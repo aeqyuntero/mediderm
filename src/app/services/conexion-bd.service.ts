@@ -10,19 +10,19 @@ export class ConexionBDService {
   constructor(private db: AngularFireDatabase) {}
 
   public getList(dir:string){
-    return this.db.list(dir).valueChanges();
+    return this.db.object(dir);
   }
 
   public getByQuery(dir:string, orden:string, query:any){
-    return this.db.list(dir, ref => ref.orderByChild(orden).equalTo(query)).valueChanges();
+    return this.db.list(dir, ref => ref.orderByChild(orden).equalTo(query));
   }
 
-  public getByKey(dir:string, orden:string, query:any){
-    return this.db.list(dir, ref => ref.orderByKey().equalTo(query)).valueChanges();
+  public getByKey(dir:string, query:any){
+    return this.db.list(dir, ref => ref.orderByKey().equalTo(query));
   }
 
   public set(dir:string, data:any){
-    return this.db.list(dir).push(data).key;
+    return this.db.list(dir).push(data);
   }
 
   public remove(dir:string, id:string){

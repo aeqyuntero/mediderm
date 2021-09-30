@@ -50,12 +50,12 @@ export class RegistroComponent implements OnInit {
       id = resp;
       this.login(id);
     });*/
-    this.login(String(this.db.set('Usuarios', usuario)));
+    this.login(String(this.db.set('Usuarios', usuario).key));
   }
 
   login(id: string){
 
-    this.db.getByKey('Usuarios', '$key', id).subscribe((resp: any) => {
+    this.db.getByKey('Usuarios', id).valueChanges().subscribe((resp: any) => {
       localStorage.setItem('token', id);
       localStorage.setItem('usuario', resp.nomUsuario);
     });

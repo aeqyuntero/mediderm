@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../dataservices/data.service';
 import { Router } from '@angular/router';
+import { ConexionBDService } from 'src/app/services/conexion-bd.service';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   constructor(private data: DataService,
+              private db: ConexionBDService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -26,11 +28,12 @@ export class LoginComponent implements OnInit {
 
   login(usuario: any, contrasena: any){
 
-    this.data.encontrarUsuarios().subscribe((resp: any) => {
+    this.db.getList('Usuarios').valueChanges().subscribe((resp: any) => {
       
       let token;
       
       Object.keys(resp).forEach(key => {
+        console.log(key);
         if (resp[key].nomUsuario == usuario && resp[key].contrasena == contrasena){
           token = key;
         }

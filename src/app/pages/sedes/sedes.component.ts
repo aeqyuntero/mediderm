@@ -12,7 +12,7 @@ export class SedesComponent implements OnInit {
 
   sedes: any[] = [];
   ngOnInit(): void {
-    this.db.getList("/Sedes").subscribe(data => {
+    this.db.getList("/Sedes").valueChanges().subscribe((data:any) => {
       this.sedes = data ;
     });
 

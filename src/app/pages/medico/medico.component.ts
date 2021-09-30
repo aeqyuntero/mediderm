@@ -19,7 +19,7 @@ export class MedicoComponent implements OnInit {
     this.id = this._activatedRoute.snapshot.paramMap.get('id');
     if (this.id !== 'nuevo'){
       console.log("id: "+this.id);
-      this.db.getByQuery("/Medicos", "Codigo_agenda", Number(this.id)).subscribe(data => {
+      this.db.getByQuery("/Medicos", "Codigo_agenda", Number(this.id)).valueChanges().subscribe(data => {
         this.medico = data ;
       });
     }

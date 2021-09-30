@@ -14,7 +14,7 @@ export class MedicosComponent implements OnInit {
 
   medicos: any[] = [];
   ngOnInit(): void {
-    this.db.getList("/Medicos").subscribe(data => {
+    this.db.getList("/Medicos").valueChanges().subscribe((data:any) => {
       this.medicos = data ;
     });
 }
