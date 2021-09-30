@@ -14,9 +14,6 @@ export class SedesComponent implements OnInit {
   ngOnInit(): void {
     this.db.getList("/Sedes").subscribe(data => {
       this.sedes = data ;
-      console.log('A');
-      console.log(data);
-      console.log('FF');
     });
 
 }

@@ -17,13 +17,10 @@ export class MedicoComponent implements OnInit {
   
   ngOnInit(): void {
     this.id = this._activatedRoute.snapshot.paramMap.get('id');
-    console.log("id: "+this.id);
     if (this.id !== 'nuevo'){
-      this.db.getList("/Medicos").subscribe(data => {
+      console.log("id: "+this.id);
+      this.db.getByQuery("/Medicos", "Codigo_agenda", Number(this.id)).subscribe(data => {
         this.medicos = data ;
-        console.log('A');
-        console.log(data);
-        console.log('FF');
       });
     }
     // tslint:disable-next-line: triple-equals

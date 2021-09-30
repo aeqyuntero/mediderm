@@ -50,8 +50,7 @@ import { ConexionBDService } from './services/conexion-bd.service';
     AppRoutingModule,
     DateTimePickerModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabase
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [
     ConexionBDService
