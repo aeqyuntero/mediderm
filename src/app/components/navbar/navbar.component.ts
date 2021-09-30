@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MedicosComponent } from 'src/app/pages/medicos/medicos.component';
 import { ConexionBDService } from 'src/app/services/conexion-bd.service';
 
 @Component({
