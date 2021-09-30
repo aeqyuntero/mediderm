@@ -1,7 +1,7 @@
 <nav name="navbar" class="navbar navbar-dark navbar-expand-lg" style="background-color: #0F1364">
     <div class="container-fluid">
         <a class="navbar-brand" [routerLink]="['inicio']">
-            <img src="/assets/images/mediderm.png" alt="" width="101,9" height="74,91">
+            <img src="/assets/images/mediderm.png" alt="" style="width: auto; margin: auto auto">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -9,13 +9,13 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link " [routerLink]="['sedes']" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link links" [routerLink]="['sedes']" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Sedes
                     </a>
 
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" [routerLink]="['servicios']" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="links nav-link dropdown-toggle" [routerLink]="['servicios']" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Servicios
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -24,27 +24,32 @@
                         <li><a class="dropdown-item" [routerLink]="['servicios']">Servicio 3</a></li>
                     </ul>
                 </li>
+
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" [routerLink]="['medicos']" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="links nav-link dropdown-toggle" [routerLink]="['medicos']" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Medicos
                     </a>
+
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" [routerLink]="['medicos']">Medico 1</a></li>
-                        <li><a class="dropdown-item" [routerLink]="['medicos']">Medico 2</a></li>
-                        <li><a class="dropdown-item" [routerLink]="['medicos']">Medico 3</a></li>
+                        <div *ngFor="let item of medicos">
+                            <li><a class="dropdown-item" [routerLink]="['/medico',item.Codigo_agenda]">{{item.Nombre}}</a></li>
+
+                        </div>
                     </ul>
+
+                </li>
+
+                <li class="nav-item">
+                    <a class="links nav-link" [routerLink]="['contacto']">Contacto</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['contacto']">Contacto</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['agendacita']">Agenda tu cita</a>
+                    <a class="links nav-link" [routerLink]="['agendacita']">Agenda tu cita</a>
                 </li>
             </ul>
             <div class="d-flex">
                 <div id="iniciar">
-                    <button class="btn btn-outline-danger me-2" [routerLink]="['registro']" type="button">Sign Up</button>
-                    <button id="ocultar-mostrar" class="btn btn-outline-primary" [routerLink]="['login']" type="button">Log In</button>
+                    <button class="links btn btn-outline-danger me-2" [routerLink]="['registro']" type="button">Sign Up</button>
+                    <button id="ocultar-mostrar" class="links btn btn-outline-primary" [routerLink]="['login']" type="button">Log In</button>
                 </div>
                 <div id="iniciado" style="display: none;" class="dropdown">
                     <button class="btn btn-primary dropdown-toogle" type="button" data-bs-toggle="dropdown">
