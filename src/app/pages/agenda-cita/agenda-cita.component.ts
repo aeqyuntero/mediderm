@@ -22,7 +22,7 @@ export class AgendaCitaComponent implements OnInit {
   ngOnInit(): void {
     this.citaModel.Medico=this._route.snapshot.paramMap.get('medico') || "undefined";
     this.citaModel.Usuario=localStorage.getItem('usuario') || "undefined";
-     this.db.getByQuery("/Citas","Usuario",this.citaModel.Usuario).subscribe(data => {
+     this.db.getByQuery("/Citas","Usuario",this.citaModel.Usuario).valueChanges().subscribe(data => {
       this.citas = data ;
       //console.log(this.citas);
     });
