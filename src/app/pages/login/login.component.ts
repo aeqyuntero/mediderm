@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../dataservices/data.service';
 import { Router } from '@angular/router';
+import { ConexionBDService } from 'src/app/services/conexion-bd.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private data: DataService,
+  constructor(private db: ConexionBDService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -21,12 +22,13 @@ export class LoginComponent implements OnInit {
     if(x != null && y != null){
       x.style.display = "block";
       y.style.display = "none";
+
     }
   }
 
   login(usuario: any, contrasena: any){
 
-    this.data.encontrarUsuarios().subscribe((resp: any) => {
+    this.db.getList("Usuarios").subscribe((resp: any) => {
       
       let token;
       

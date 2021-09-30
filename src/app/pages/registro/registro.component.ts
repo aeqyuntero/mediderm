@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConexionBDService } from 'src/app/services/conexion-bd.service';
 import { DataService } from '../dataservices/data.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class RegistroComponent implements OnInit {
 
   };
   
-  constructor(private data: DataService,
+  constructor(private db: ConexionBDService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -44,17 +45,13 @@ export class RegistroComponent implements OnInit {
 
     let id;
 
-    this.data.registrarUsuario(usuario).subscribe(resp => {
-      id = resp;
-      this.login(id);
-    });
-    
+    this.db.set("Usuarios", usuario);
 
   }
 
   login(id: string){
 
-    this.data.obtenerUsuario(id).subscribe((resp: any) => {
+    this.db.getByQuery('Usuarios', '$key', id).subscribe((resp: any) => {
       localStorage.setItem('token', id);
       localStorage.setItem('usuario', resp.nomUsuario);
     });
