@@ -5,7 +5,9 @@
             <div class="card-body ">
                 <h5 class="card-title">{{item.Nombre}}</h5>
                 <p class="card-text">{{item.Descripcion}}</p>
-                <a [routerLink]="['/medico',item.Id_med]" class="btn btn-danger mr-6">Ver más</a>
+                <p class="card-text">{{item.Id_med}}</p>
+                <p class="card-text">{{item.Codigo_agenda}}</p>
+                <a [routerLink]="['/medico',item.Codigo_agenda]" class="btn btn-danger mr-6">Ver más</a>
                 <a [routerLink]="['../agendacita']" class="btn btn-primary ml-6">Agendar</a>
 
             </div>
