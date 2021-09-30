@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConexionBDService } from 'src/app/services/conexion-bd.service';
 
 @Component({
   selector: 'app-servicios',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServiciosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private db: ConexionBDService) { }
 
+  servicios: any[] = [];
   ngOnInit(): void {
+    this.db.getList("/Servicios").valueChanges().subscribe((data:any) => {
+      this.servicios = data ;
+    });
   }
 
 }

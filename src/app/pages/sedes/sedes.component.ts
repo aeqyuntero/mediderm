@@ -15,6 +15,5 @@ export class SedesComponent implements OnInit {
     this.db.getList("/Sedes").valueChanges().subscribe((data:any) => {
       this.sedes = data ;
     });
-
-}
+  }
 }

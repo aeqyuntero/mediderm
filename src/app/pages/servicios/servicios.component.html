@@ -1,60 +1,15 @@
-<div class="card m-4">
+<div class="card m-4" *ngFor="let item of servicios">
 
     <div class="row g-0">
         <div class="col-md-8 ">
             <div class="card-body ml-4">
-                <h5 class="card-title">Limpieza</h5>
-                <p class="card-text"> ELorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took
-                    a galley of type and scrambled it to make a type specimen book. It has survived not only five
-                    centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                    popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
-                    more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
-                    Ipsum</p>
+                <h5 class="card-title">{{item.Nombre}}</h5>
+                <p class="card-text">{{item.Descripcion}}</p>
                 <a href="#" class="btn btn-danger">Ver más...</a>
             </div>
         </div>
         <div class="col-md-4">
-            <img src="http://dramariajulianavillafane.com/wp-content/uploads/2018/11/Microdermoabrasi%C3%B3n-y-limpieza-facial.jpg?quality=100.3018110312050"
-                class="card-img-top" alt="item">
+            <img [src]="item.img_url" class="card-img-top" alt="item">
         </div>
     </div>
-
-
-    <div>
-
-    </div>
-
-
-</div>
-
-
-<div class="card m-4">
-
-    <div class="row g-0">
-        <div class="col-md-8 ">
-            <div class="card-body ml-4">
-                <h5 class="card-title">Exfoliación</h5>
-                <p class="card-text"> ELorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took
-                    a galley of type and scrambled it to make a type specimen book. It has survived not only five
-                    centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                    popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
-                    more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
-                    Ipsum</p>
-                <a href="#" class="btn btn-danger">Ver más...</a>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <img src="https://loquesucedio.com/wp-content/uploads/2019/10/dermatologia.jpg" class="card-img-top"
-                alt="item">
-        </div>
-    </div>
-
-
-    <div>
-
-    </div>
-
-
 </div>

@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
 
   login(usuario: any, contrasena: any){
 
-    this.db.getList('Usuarios').valueChanges().subscribe((resp: any) => {
-      
+    this.db.getObject('Usuarios').valueChanges().subscribe((resp: any) => {
+      console.log(resp);
       let token;
       
       Object.keys(resp).forEach(key => {

@@ -9,8 +9,12 @@ export class ConexionBDService {
 
   constructor(private db: AngularFireDatabase) {}
 
-  public getList(dir:string){
+  public getObject(dir:string){
     return this.db.object(dir);
+  }
+
+  public getList(dir:string){
+    return this.db.list(dir);
   }
 
   public getByQuery(dir:string, orden:string, query:any){
