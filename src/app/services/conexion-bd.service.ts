@@ -1,26 +1,33 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ConexionBDService {
 
-  constructor(private firestore: AngularFirestore) {}
+  constructor(private db: AngularFireDatabase) {}
 
-  public async get() {
-    try {
-      const re = this.firestore.collection('prueba', ref => ref.where('nombre', '==', 'yo'));
-      const resul = await re.get();
-      resul.forEach((doc)=>{
-        doc.forEach((a)=>{
-          console.log(a.id, '=>', a.data());
-        })
-      })
-    } catch (error) {
-      console.log(error);
-    }
-    
+  public getList(dir:string){
+    return this.db.list(dir).valueChanges();
+  }
+
+  public getByQuery(dir:string, orden:string, query:any){
+    return this.db.list(dir, ref => ref.orderByChild(orden).equalTo(query)).valueChanges();
+  }
+
+  public set(dir:string, data:any){
+    this.db.list(dir).push(data);
+  }
+
+  public remove(dir:string, id:string){
+    this.db.list(dir).remove(id);
+  }
+
+  public update(dir:string, data:any){
+    const $key = data.$key;
+    delete data.$key;
+    this.db.list(dir).update($key, data);
   }
 }

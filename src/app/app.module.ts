@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { DateTimePickerModule } from "@syncfusion/ej2-angular-calendars";
+import { DatePickerModule, TimePickerModule } from "@syncfusion/ej2-angular-calendars";
+import { FormsModule } from '@angular/forms';
 
 //Páginas
 import { AppRoutingModule } from './app-routing.module';
@@ -17,14 +18,17 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { AgendaCitaComponent } from './pages/agenda-cita/agenda-cita.component';
 import { EditarUsuarioComponent } from './pages/editar-usuario/editar-usuario.component';
 import { HistoriaMedicaComponent } from './pages/historia-medica/historia-medica.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MedicoComponent } from './pages/medico/medico.component';
+
 
 //Servicios
-import { ConexionBDService } from './services/conexion-bd.service';
 
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
+import { ConexionBDService } from './services/conexion-bd.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -40,15 +44,18 @@ import { environment } from '../environments/environment';
     ServiciosComponent,
     AgendaCitaComponent,
     EditarUsuarioComponent,
-    HistoriaMedicaComponent
+    HistoriaMedicaComponent,
+    MedicoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DateTimePickerModule,
+    DatePickerModule,
+    TimePickerModule,
+    HttpClientModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAnalyticsModule,
-    AngularFirestoreModule
+    BrowserAnimationsModule
   ],
   providers: [
     ConexionBDService

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConexionBDService } from 'src/app/services/conexion-bd.service';
 
 @Component({
   selector: 'app-sedes',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SedesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private db: ConexionBDService) { }
 
+  sedes: any[] = [];
   ngOnInit(): void {
-  }
+    this.db.getList("/Sedes").subscribe(data => {
+      this.sedes = data ;
+    });
 
+}
 }

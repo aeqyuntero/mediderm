@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ConexionBDService } from 'src/app/services/conexion-bd.service';
+import { DataService } from '../dataservices/data.service';
+import { medicosmodel } from '../medicos/Models/medicosmodel';
 
 @Component({
   selector: 'app-medicos',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MedicosComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private db: ConexionBDService) { }
+  logged: string = "";
+  medicos: any[] = [];
   ngOnInit(): void {
-  }
-
+    this.logged = localStorage.getItem('token') || "undefined";
+    this.db.getList("/Medicos").subscribe(data => {
+      this.medicos = data ;
+    });
+}
 }

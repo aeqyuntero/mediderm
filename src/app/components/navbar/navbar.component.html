@@ -9,20 +9,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" [routerLink]="['sedes']" id="navbarDropdownMenuLink"
-                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="nav-item">
+                    <a class="nav-link " [routerLink]="['sedes']" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         Sedes
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" [routerLink]="['sedes']">Sede 1</a></li>
-                        <li><a class="dropdown-item" [routerLink]="['sedes']">Sede 2</a></li>
-                        <li><a class="dropdown-item" [routerLink]="['sedes']">Sede 3</a></li>
-                    </ul>
+
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" [routerLink]="['servicios']" id="navbarDropdownMenuLink" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" [routerLink]="['servicios']" id="navbarDropdownMenuLink"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Servicios
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -45,22 +41,24 @@
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['contacto']">Contacto</a>
                 </li>
-                <li class="nav-item">
+              <!--  <li class="nav-item">
                     <a class="nav-link" [routerLink]="['agendacita']">Agenda tu cita</a>
-                </li>
+                </li>-->
             </ul>
             <div class="d-flex">
-                <div id="iniciar"> 
-                    <button class="btn btn-outline-danger me-2" [routerLink]="['registro']" type="button">Sign Up</button>
-                    <button id="ocultar-mostrar" class="btn btn-outline-primary" [routerLink]="['login']" type="button">Log In</button>
+                <div id="iniciar" *ngIf="noSesion()">
+                    <button class="btn btn-outline-danger me-2" [routerLink]="['registro']" type="button">Sign
+                        Up</button>
+                    <button id="ocultar-mostrar" class="btn btn-outline-primary" [routerLink]="['login']"
+                        type="button">Log In</button>
                 </div>
-                <div id="iniciado" style="display: none;" class="dropdown">
+                <div id="iniciado" *ngIf="!noSesion()" class="dropdown">
                     <button class="btn btn-primary dropdown-toogle" type="button" data-bs-toggle="dropdown">
                         <img src="/assets/images/login.png" width="30" height="30">
                     </button>
                     <div class="dropdown-menu">
                         <a class="nav-link" [routerLink]="['historia medica']" class="dropdown-item">Perfil</a>
-                        <a class="nav-link" [routerLink]="['inicio']" class="dropdown-item" (click)="funcion()">Salir</a>
+                        <a class="nav-link" [routerLink]="['inicio']" class="dropdown-item" (click)="logout()">Salir</a>
                     </div>
                 </div>
             </div>
