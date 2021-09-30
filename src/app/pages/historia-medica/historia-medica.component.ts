@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConexionBDService } from 'src/app/services/conexion-bd.service';
 
 @Component({
   selector: 'app-historia-medica',
@@ -7,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoriaMedicaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private db: ConexionBDService) { }
 
+  historia: any[] = [];
   ngOnInit(): void {
-  }
+    this.db.getList("/Historia_c").valueChanges().subscribe((data:any) => {
+      this.historia = data ;
+    });
+}
+
 
   funcionDivInfo():void{
     let div = document.getElementById("info");
