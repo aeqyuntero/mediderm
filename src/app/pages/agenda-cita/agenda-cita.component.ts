@@ -24,8 +24,9 @@ export class AgendaCitaComponent implements OnInit {
     this.citaModel.Usuario=localStorage.getItem('usuario') || "undefined";
      this.db.getByQuery("/Citas","Usuario",this.citaModel.Usuario).valueChanges().subscribe(data => {
       this.citas = data ;
-      //console.log(this.citas);
+      console.log(this.citas);
     });
+    console.log("CitaModel: ",this.citaModel);
   }
   formularioEnviado(){
     /*
@@ -47,15 +48,13 @@ export class AgendaCitaComponent implements OnInit {
    onDeleteCita(fecha: string, hora: string){
     this.data.encontrarCitas().subscribe((resp: any) => {
       let token;
-      
       Object.keys(resp).forEach(key => {
         if (resp[key].Usuario == this.citaModel.Usuario && resp[key].Fecha == fecha && resp[key].Hora == hora){
           token = key;
         }
       });
-
+      console.log("Token: ",token);
       if(token){
-        console.log(token);
         this.db.remove("/Citas",token);
       }else{
         console.log("Error");
