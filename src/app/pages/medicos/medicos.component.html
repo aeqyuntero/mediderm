@@ -1,12 +1,12 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col" *ngFor="let item of medicos">
         <div class="card h-100">
-            <img [src]="item.Imagen" class="card-img-top" alt="...">
+            <img [src]="item.Imagen" class="card-img-top" alt="..." style="max-width: 20rem;">
             <div class="card-body ">
                 <h5 class="card-title">{{item.Nombre}}</h5>
                 <p class="card-text">{{item.Descripcion}}</p>
-                <!-- <a [routerLink]="['/medico',item.Id_med]" class="btn btn-danger mr-6">Ver más</a>
-                <a [routerLink]="['../agendacita']" class="btn btn-primary ml-6">Agendar</a> -->
+                <a [routerLink]="['/medico',item.Id_med]" class="btn btn-danger mr-6">Ver más</a>
+                <a [routerLink]="['../agendacita']" class="btn btn-primary ml-6">Agendar</a>
 
             </div>
             <div class="card-footer">

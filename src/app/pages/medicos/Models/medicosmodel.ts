@@ -8,8 +8,10 @@ export class medicosmodel{
     Especialidad: any;
     Tr_img_1: any;
     Tr_des_1: any;
+    Tr_fec_1: any;
     Tr_img_2: any;
     Tr_des_2: any;
+    Tr_fec_2: any;
     
     
     }
