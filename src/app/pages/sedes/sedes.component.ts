@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConexionBDService } from 'src/app/services/conexion-bd.service';
 
 import { DataService } from '../dataservices/data.service';
 import { sedesmodel } from '../sedes/models/sedesmodel';
@@ -10,11 +11,11 @@ import { sedesmodel } from '../sedes/models/sedesmodel';
 })
 export class SedesComponent implements OnInit {
 
-  constructor(private _data: DataService) { }
+  constructor(private db: ConexionBDService) { }
 
-  sedes: sedesmodel[] = [];
+  sedes: any[] = [];
   ngOnInit(): void {
-    this._data.getSedeslista().subscribe(data => {
+    this.db.getList("/Sedes").subscribe(data => {
       this.sedes = data ;
       console.log('A');
       console.log(data);

@@ -22,12 +22,11 @@ import { MedicoComponent } from './pages/medico/medico.component';
 
 
 //Servicios
-import { ConexionBDService } from './services/conexion-bd.service';
 
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
+import { ConexionBDService } from './services/conexion-bd.service';
 
 @NgModule({
   declarations: [
@@ -50,16 +49,12 @@ import { environment } from '../environments/environment';
     BrowserModule,
     AppRoutingModule,
     DateTimePickerModule,
-
     HttpClientModule,
-  
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAnalyticsModule,
-    AngularFirestoreModule
+    AngularFireDatabase
   ],
   providers: [
     ConexionBDService
-
   ],
   bootstrap: [
     AppComponent

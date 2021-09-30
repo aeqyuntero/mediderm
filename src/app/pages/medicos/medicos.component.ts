@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConexionBDService } from 'src/app/services/conexion-bd.service';
 import { DataService } from '../dataservices/data.service';
 import { medicosmodel } from '../medicos/Models/medicosmodel';
 
@@ -9,16 +10,15 @@ import { medicosmodel } from '../medicos/Models/medicosmodel';
 })
 export class MedicosComponent implements OnInit {
 
-  constructor(private _data: DataService) { }
+  constructor(private db: ConexionBDService) { }
 
-  medicos: medicosmodel[] = [];
+  medicos: any[] = [];
   ngOnInit(): void {
-    this._data.getMedicoslista().subscribe(data => {
+    this.db.getList("/Medicos").subscribe(data => {
       this.medicos = data ;
       console.log('A');
       console.log(data);
       console.log('FF');
     });
-
 }
 }

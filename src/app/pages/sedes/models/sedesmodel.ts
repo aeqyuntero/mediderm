@@ -1,13 +1,13 @@
 export class sedesmodel{
 
-Id_sede: any;
-Nombre: any;
-Descripcion: any;
-Direccion: any;
-Imagen: any;
-Horarios: any;
-Telefono: any;
-Maps: any;
+    Id_sede: string | undefined;
+    Nombre: string | undefined;
+    Descripcion: string | undefined;
+    Direccion: string | undefined;
+    Imagen: string | undefined;
+    Horarios: string | undefined;
+    Telefono: string | undefined;
+    Maps: string | undefined;
 
 
 }
