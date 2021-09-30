@@ -10,7 +10,7 @@ import { ConexionBDService } from 'src/app/services/conexion-bd.service';
 export class MedicoComponent implements OnInit {
 
   id:any = null;
-  medico: any[] = [];
+  medicos: any[] = [];
 
   constructor(private db: ConexionBDService, private _activatedRoute: ActivatedRoute) {   }
 
@@ -20,7 +20,7 @@ export class MedicoComponent implements OnInit {
     if (this.id !== 'nuevo'){
       console.log("id: "+this.id);
       this.db.getByQuery("/Medicos", "Codigo_agenda", Number(this.id)).valueChanges().subscribe(data => {
-        this.medico = data ;
+        this.medicos = data ;
       });
     }
     // tslint:disable-next-line: triple-equals
