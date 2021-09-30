@@ -17,8 +17,8 @@ export class ConexionBDService {
     return this.db.list(dir, ref => ref.orderByChild(orden).equalTo(query)).valueChanges();
   }
 
-  public set(dir:string, doc:any){
-    this.db.list(dir).push(doc);
+  public set(dir:string, data:any){
+    this.db.list(dir).push(data);
   }
 
   public remove(dir:string, id:string){
