@@ -4,6 +4,7 @@ import { sedesmodel } from '../sedes/models/sedesmodel';
 import { medicosmodel } from '../medicos/Models/medicosmodel';
 import {map} from 'rxjs/operators';
 import { Usuario } from '../registro/registro.component';
+import { CitaModel } from '../agenda-cita/Models/CitaModel';
 @Injectable({
   providedIn: 'root'
 })
@@ -28,6 +29,10 @@ export class DataService {
   }
 
   getMedicolista(id: any){
+    return this._http.get(`${this.url}/Medicos/${id}.json`);
+  }
+
+  getCitaslista(id: any){
     return this._http.get(`${this.url}/Medicos/${id}.json`);
   }
   // tslint:disable-next-line: typedef
@@ -122,8 +127,20 @@ export class DataService {
   }
 
   cambiarUsuario(usuario: any, id: any){
-
     return this._http.put(`${this.url}Usuarios/${id}.json`, usuario);
+  }
+
+  encontrarCitas(/* usuario: string */){
+    return this._http.get(`${this.url}Citas.json`);
+  }
+
+  registrarCita(cita: CitaModel){
+    
+    return this._http.post(`${this.url}Citas.json`, cita).pipe(
+      map((resp: any) => {
+        return resp.name;
+      })
+    );
 
   }
 

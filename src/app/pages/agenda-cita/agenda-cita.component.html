@@ -1,50 +1,66 @@
-<ejs-datetimepicker></ejs-datetimepicker>
-<div class="calendar-container">
-    <div class="calendar-header">
-        <h1>
-            September
-            <button>▾</button>
-        </h1>
-        <p>2021</p>
-    </div>
-    <div class="calendar"><span class="day-name">Mon</span><span class="day-name">Tue</span><span
-            class="day-name">Wed</span><span class="day-name">Thu</span><span class="day-name">Fri</span><span
-            class="day-name">Sat</span><span class="day-name">Sun</span>
-        <div class="day day--disabled">30</div>
-        <div class="day day--disabled">31</div>
-        <div class="day">1</div>
-        <div class="day">2</div>
-        <div class="day">3</div>
-        <div class="day">4</div>
-        <div class="day">5</div>
-        <div class="day">6</div>
-        <div class="day">7</div>
-        <div class="day">8</div>
-        <div class="day" style="background-color: #0f1364;
-      color: white;">9</div>
-        <div class="day">10</div>
-        <div class="day">11</div>
-        <div class="day">12</div>
-        <div class="day">13</div>
-        <div class="day">14</div>
-        <div class="day">15</div>
-        <div class="day">16</div>
-        <div class="day">17</div>
-        <div class="day">18</div>
-        <div class="day">19</div>
-        <div class="day">20</div>
-        <div class="day">21</div>
-        <div class="day">22</div>
-        <div class="day">23</div>
-        <div class="day">24</div>
-        <div class="day">25</div>
-        <div class="day">26</div>
-        <div class="day">27</div>
-        <div class="day">28</div>
-        <div class="day">29</div>
-        <div class="day">30</div>
-        <div class="day">31</div>
-        <div class="day day--disabled">1</div>
-        <div class="day day--disabled">2</div>
-    </div>
-</div>
+<!--<ejs-datetimepicker [(value)]='citaModel.Fecha'></ejs-datetimepicker>-->
+<form #formularioCita="ngForm" class="text-center border border-light p-5" (ngSubmit)="onCreatePost(formularioCita.value)">
+	<p class="h4 mb-4">Agendar Cita</p>
+	<input
+    type="text"
+    name="Usuario"
+    id="Usuario"
+	placeholder="Usuario"
+    class="form-control mb-4"
+    [(ngModel)]="citaModel.Usuario"
+	disabled
+  />
+
+  <input
+    type="text"
+    name="Medico"
+    placeholder="Nombre de Medico"
+	class="form-control mb-4"
+    [(ngModel)]="citaModel.Medico"
+	disabled
+  />
+
+  <input
+    type="date"
+    name="Fecha"
+    placeholder="Fecha"
+	class="form-control mb-4"
+    [(ngModel)]="citaModel.Fecha"
+  />
+
+  <input
+    type="time"
+    name="Hora"
+    placeholder="Hora"
+	class="form-control mb-4"
+	step="3600" min="00:00"
+    [(ngModel)]="citaModel.Hora"
+  />
+
+  <button class="btn btn-info btn-block" type="submit">Guardar</button>
+</form>
+
+<!-- <h2>Depurando cita:</h2>
+{{ citaModel | json }} -->
+
+<p class="h4 mb-4" style="margin: 0px auto; text-align: center;">Citas Agendadas</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Medico</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cita of citas">
+      <td>{{cita.Medico}}</td>
+      <td>{{cita.Fecha}}</td>
+      <td>{{cita.Hora}}</td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="onDeleteCita(cita.Fecha,cita.Hora)">Cancelar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

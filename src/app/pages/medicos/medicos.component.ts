@@ -11,10 +11,11 @@ import { medicosmodel } from '../medicos/Models/medicosmodel';
 export class MedicosComponent implements OnInit {
 
   constructor(private db: ConexionBDService) { }
-
+  logged: string = "";
   medicos: any[] = [];
   ngOnInit(): void {
-    this.db.getList("/Medicos").valueChanges().subscribe((data:any) => {
+    this.logged = localStorage.getItem('token') || "undefined";
+    this.db.getList("/Medicos").valueChanges().subscribe(data => {
       this.medicos = data ;
     });
 }

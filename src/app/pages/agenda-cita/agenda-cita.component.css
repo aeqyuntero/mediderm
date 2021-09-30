@@ -220,3 +220,30 @@ body {
   font-weight: 500;
   color: rgba(81, 86, 93, 0.7);
 }
+
+form{
+  width: 500px;
+  margin: 20px auto;
+}
+table{
+  width: 500px;
+  margin: 20px auto;
+}
+
+tbody{
+  border-width: 1;
+}
+table th, table td {
+  padding: 0.25em 0.5em;
+  text-align: left;
+}
+table th:nth-child(2), table td:nth-child(2) {
+  text-align: right;
+}
+table td {
+  background-color: #eee;
+}
+table th {
+  background-color: #009;
+  color: #fff;
+}

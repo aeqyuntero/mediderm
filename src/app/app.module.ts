@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { DateTimePickerModule } from "@syncfusion/ej2-angular-calendars";
+import { DatePickerModule, TimePickerModule } from "@syncfusion/ej2-angular-calendars";
 import { FormsModule } from '@angular/forms';
 
 //Páginas
@@ -29,6 +29,7 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 import { ConexionBDService } from './services/conexion-bd.service';
 import { LoadingComponent } from './components/loading/loading.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -51,10 +52,12 @@ import { LoadingComponent } from './components/loading/loading.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DateTimePickerModule,
+    DatePickerModule,
+    TimePickerModule,
     HttpClientModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    FormsModule
+    BrowserAnimationsModule
   ],
   providers: [
     ConexionBDService
