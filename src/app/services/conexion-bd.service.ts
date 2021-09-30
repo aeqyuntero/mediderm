@@ -10,7 +10,10 @@ export class ConexionBDService {
   constructor(private db: AngularFireDatabase) {}
 
   public getList(query:string){
-    console.log("entro");
     return this.db.list(query).valueChanges();
+  }
+
+  public getByQuery(colecc:string, ){
+    return this.db.list(colecc, ref => ref.orderByChild("").equalTo("")).valueChanges();
   }
 }
