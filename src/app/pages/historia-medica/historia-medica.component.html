@@ -1,97 +1,116 @@
-<div class="row">
-    <div class="col-1">
-        <div class="list-group" id="list-tab" role="tablist">
-            <label class="btn btn-secondary active" (click)="funcionDivHistoria()">
-                Datos
-            </label>
-            <label class="btn btn-secondary" (click)="funcionDivInfo()">
-                Historia Clínica
-            </label>
-            <!--<label class="btn btn-secondary">
-                Por definir
-            </label>
-            <label class="btn btn-secondary">
-                Por definir
-            </label>-->
-        </div>
-    </div>
-    <div id="info" class="col">
-        <div id="contenedor datos" class="container text-center mt-5 mb-5">
+<app-loading *ngIf="loading" class="m-5"></app-loading>
 
-            <img src="/assets/images/login.png">
-            <hr>
-        
-            <div class="form-group row me-5">
-        
-                <label class="col col-form-label">Nombres: </label>
-                <div class="col">
-        
-                    <label for="">Pepito Alfredo</label>
-        
-                </div>
-                <label class="col col-form-label">Apellidos: </label>
-                <div class="col">
-        
-                    <label for="">Jimenes Suarez</label>
-        
-                </div>
-        
-            </div>
-            <br>
-        
-            <div class="form-group row me-5">
-        
-                <label class="col col-form-label">Correo: </label>
-                <div class="col">
-        
-                    algo123@gmail.com
-        
-                </div>
-                <label class="col col-form-label">Fecha de Nacimiento: </label>
-                <div class="col">
-        
-                    <label for="">29/02/2000</label>
-        
-                </div>
-        
-            </div>
-            <br>
-        
-            <div class="form-group row me-5">
-        
-                <label class="col col-form-label">Teléfono: </label>
-                <div class="col">
-        
-                    <label for="">+57 3756745346</label>
-        
-                </div>
-                <label class="col col-form-label"></label>
-                <div class="col">
-        
-                </div>
-        
-            </div>
-            <br>
-        
-            <div class="form-group row me-5">
-        
-                <label class="col col-form-label">Sexo: </label>
-                <div class="col">
-        
-                    Indefinido
-        
-                </div>
-                <label class="col col-form-label"></label>
-                <div class="col">
-        
-                   
-        
-                </div>
-        
-            </div>
+<div class="container text-center mt-5 mb-5" *ngIf="!loading">
+
+    <!-- <div>
+        <button class="btn btn-secondary active" [routerLink]="['editar']">
+            Datos
+        </button>
+        <button class="btn btn-secondary" (click)="funcionDivInfo()">
+            Historia Clínica
+        </button>
+    </div> -->
+
+    <img src="/assets/images/login.png">
+    <hr>
+
+    <div class="form-group row me-5">
+
+        <label class="col col-form-label">Nombres: </label>
+        <div class="col">
+
+            <input class="form-control" type="text" placeholder="Nombres" value="{{nombre}}" #inombre disabled>
+
         </div>
+        <label class="col col-form-label">Apellidos: </label>
+        <div class="col">
+
+            <input class="form-control" type="text" placeholder="Apellidos" value="{{apellido}}" #iapellido disabled>
+
+        </div>
+
     </div>
-    <div style="display: none;" id="historia" class="col">
-        <img src="/assets/images/historia.png" width="1500" height="1000">
+    <br>
+
+    <div class="form-group row me-5">
+
+        <label class="col col-form-label">Correo: </label>
+        <div class="col">
+
+            <input class="form-control" type="text" placeholder="Correo" value="{{correo}}" #icorreo disabled>
+
+        </div>
+        <label class="col col-form-label">Fecha de Nacimiento: </label>
+        <div class="col">
+
+            <input class="form-control" type="date" value="{{fecha}}" #ifecha disabled>
+
+        </div>
+
     </div>
+    <br>
+
+    <div class="form-group row me-5">
+
+        <label class="col col-form-label">Teléfono: </label>
+        <div class="col">
+
+            <input class="form-control" type="text" value="{{telefono}}" placeholder="ej. 1234567890" #itelefono
+                disabled>
+
+        </div>
+        <label class="col col-form-label">Contraseña: </label>
+        <div class="col">
+
+            <input class="form-control" type="password" value="{{contrasena}}" placeholder="****" #icontrasena disabled>
+
+        </div>
+
+    </div>
+    <br>
+
+    <div class="form-group row me-5">
+
+        <label class="col col-form-label">Sexo: </label>
+        <div class="col">
+
+            <select class="form-select" aria-label="Default select example" #isexo disabled>
+                <option value="M" [selected]="esMasculino">Masculino</option>
+                <option value="F" [selected]="!esMasculino">Femenino</option>
+            </select>
+
+        </div>
+        <label class="col col-form-label">Confirmar Contraseña: </label>
+        <div class="col">
+
+            <input class="form-control" type="password" value="{{contrasena}}" placeholder="****" #icocontrasena
+                disabled>
+
+        </div>
+
+    </div>
+    <br>
+
+    <div class="form-group row me-5">
+
+        <label class="col col-form-label">Usuario: </label>
+        <div class="col">
+
+            <input class="form-control" type="text" value="{{nomUsuario}}" placeholder="Usuario" #iusuario disabled>
+
+        </div>
+        <label class="col col-form-label">Dirección: </label>
+        <div class="col">
+
+            <input class="form-control" type="text" placeholder="Cll. 4" value="{{direccion}}" #idireccion disabled>
+
+        </div>
+
+    </div>
+    <br>
+
+    <button class="btn btn-primary" [routerLink]="['/editar']">
+        Editar Datos
+    </button>
+
 </div>

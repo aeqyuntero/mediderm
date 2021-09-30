@@ -121,4 +121,10 @@ export class DataService {
 
   }
 
+  cambiarUsuario(usuario: any, id: any){
+
+    return this._http.put(`${this.url}Usuarios/${id}.json`, usuario);
+
+  }
+
 }
