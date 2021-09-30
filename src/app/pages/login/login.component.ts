@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
       let token;
       
       Object.keys(resp).forEach(key => {
-        console.log(key);
         if (resp[key].nomUsuario == usuario && resp[key].contrasena == contrasena){
           token = key;
         }
