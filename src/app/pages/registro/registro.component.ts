@@ -46,21 +46,20 @@ export class RegistroComponent implements OnInit {
 
     let id;
 
-    this.data.registrarUsuario(usuario).subscribe(resp => {
+    /*this.data.registrarUsuario(usuario).subscribe(resp => {
       id = resp;
       this.login(id);
-    });
-    
-
+    });*/
+    this.login(String(this.db.set('Usuarios', usuario)));
   }
 
   login(id: string){
 
-    this.data.obtenerUsuario(id).subscribe((resp: any) => {
+    this.db.getByKey('Usuarios', '$key', id).subscribe((resp: any) => {
       localStorage.setItem('token', id);
       localStorage.setItem('usuario', resp.nomUsuario);
     });
-
+    console.log("Entro")
     this.router.navigate(['inicio']);
 
   }

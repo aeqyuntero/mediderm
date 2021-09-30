@@ -17,17 +17,21 @@ export class ConexionBDService {
     return this.db.list(dir, ref => ref.orderByChild(orden).equalTo(query)).valueChanges();
   }
 
+  public getByKey(dir:string, orden:string, query:any){
+    return this.db.list(dir, ref => ref.orderByKey().equalTo(query)).valueChanges();
+  }
+
   public set(dir:string, data:any){
-    this.db.list(dir).push(data);
+    return this.db.list(dir).push(data).key;
   }
 
   public remove(dir:string, id:string){
-    this.db.list(dir).remove(id);
+    return this.db.list(dir).remove(id);
   }
 
   public update(dir:string, data:any){
     const $key = data.$key;
     delete data.$key;
-    this.db.list(dir).update($key, data);
+    return this.db.list(dir).update($key, data);
   }
 }
