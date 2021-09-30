@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { sedesmodel } from '../sedes/models/sedesmodel';
 import { medicosmodel } from '../medicos/Models/medicosmodel';
 import {map} from 'rxjs/operators';
+import { Usuario } from '../registro/registro.component';
 @Injectable({
   providedIn: 'root'
 })
@@ -97,4 +98,27 @@ export class DataService {
     return medicos ;
 
   }
+
+  registrarUsuario(usuario: Usuario){
+    
+    return this._http.post(`${this.url}Usuarios.json`, usuario).pipe(
+      map((resp: any) => {
+        return resp.name;
+      })
+    );
+
+  }
+
+  obtenerUsuario(id: string){
+
+    return this._http.get(`${this.url}Usuarios/${id}.json`);
+
+  }
+
+  encontrarUsuarios(/* usuario: string */){
+
+    return this._http.get(`${this.url}Usuarios.json`);
+
+  }
+
 }
