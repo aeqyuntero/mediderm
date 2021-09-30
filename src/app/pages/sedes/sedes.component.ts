@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConexionBDService } from 'src/app/services/conexion-bd.service';
 
-import { DataService } from '../dataservices/data.service';
-import { sedesmodel } from '../sedes/models/sedesmodel';
-
 @Component({
   selector: 'app-sedes',
   templateUrl: './sedes.component.html',
@@ -17,9 +14,6 @@ export class SedesComponent implements OnInit {
   ngOnInit(): void {
     this.db.getList("/Sedes").subscribe(data => {
       this.sedes = data ;
-      console.log('A');
-      console.log(data);
-      console.log('FF');
     });
 
 }

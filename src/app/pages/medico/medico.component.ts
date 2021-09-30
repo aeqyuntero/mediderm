@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../dataservices/data.service';
-import { medicosmodel } from '../medicos/Models/medicosmodel';
 import { ActivatedRoute } from '@angular/router';
 import { ConexionBDService } from 'src/app/services/conexion-bd.service';
 
@@ -12,7 +10,7 @@ import { ConexionBDService } from 'src/app/services/conexion-bd.service';
 export class MedicoComponent implements OnInit {
 
   id:any = null;
-  medico: any = [];
+  medicos: any[] = [];
 
   constructor(private db: ConexionBDService, private _activatedRoute: ActivatedRoute) {   }
 
@@ -20,12 +18,9 @@ export class MedicoComponent implements OnInit {
   ngOnInit(): void {
     this.id = this._activatedRoute.snapshot.paramMap.get('id');
     if (this.id !== 'nuevo'){
-      this.db.getList("Medicos").subscribe(data => {
-        this.medico = data;
-        this.medico.Id_med = this.id;
-        console.log('B');
-        console.log(data);
-        console.log('FF');
+      console.log("id: "+this.id);
+      this.db.getByQuery("/Medicos", "Codigo_agenda", Number(this.id)).subscribe(data => {
+        this.medicos = data ;
       });
     }
     // tslint:disable-next-line: triple-equals
