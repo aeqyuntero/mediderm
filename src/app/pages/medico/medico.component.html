@@ -1,19 +1,55 @@
-<div class="row row-cols-1  g-4">
-    <div class="col" *ngFor="let item  medico">
-        <div class="card h-100">
-            <img [src]="item.Imagen" class="card-img-top" alt="...">
-            <div class="card-body ">
-                <h5 class="card-title">{{item.Nombre}}</h5>
-                <p class="card-text">{{item.Descripcion}}</p>
-                <a href="#" class="btn btn-danger mr-6">Ver más</a>
-                <a [routerLink]="['../agendacita']" class="btn btn-primary ml-6">Agendar</a>
+<div class="card mb-3" style="max-width: 840px;" *ngFor="let item of medicos">
+    <div class="row no-gutters">
+        <div class="card-header">
+            <h2 class="card-title">{{item.Nombre}}</h2>
+        </div>
+        <div class="col-md-4 ">
+            <img [src]="item.Imagen" style="max-width: 200px;" class="" alt="...">
+        </div>
+        <div class="col-md-6 ml-4">
+            <div class="card-body">
 
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Especialidad: {{item.Especialidad}}</small>
+                <p class="card-text">{{item.Descripcion}}</p>
+                <a [routerLink]="['/medicos']" class="btn btn-danger mr-6">Regresar</a>
+                <a [routerLink]="['/agendacita']" class="btn btn-primary ml-6 ">Agendar</a>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>
+        <h2>Últimos procedimientos realizados</h2>
+
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img [src]="item.Tr_img_1" style="max-width: 200px;" class="" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+
+                        <p class="card-text">{{item.Tr_des_1}}</p>
+                        <p class="card-text"><small class="text-muted">{{item.Tr_fec_1}}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img [src]="item.Tr_img_2" style="max-width: 200px;" class="" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+
+                        <p class="card-text">{{item.Tr_des_2}}</p>
+                        <p class="card-text"><small class="text-muted">{{item.Tr_fec_2}}</small></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <small class="text-muted">Especialidad: {{item.Especialidad}}</small>
+        </div>
     </div>
-
-
 </div>
