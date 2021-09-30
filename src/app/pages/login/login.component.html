@@ -8,7 +8,7 @@
         <label class="col col-form-label">Usuario: </label>
         <div class="col">
 
-            <input class="form-control" type="text" placeholder="Usuario" formControlName="usuario">
+            <input class="form-control" type="text" placeholder="Usuario" #usuario>
 
         </div>
 
@@ -20,13 +20,14 @@
         <label class="col col-form-label">Contraseña: </label>
         <div class="col">
 
-            <input class="form-control" type="passwowrd" placeholder="Contraseña" formControlName="contraseña">
+            <input class="form-control" type="passwowrd" placeholder="Contraseña" #contrasena>
 
         </div>
 
     </div>
     <br>
 
-    <button class="btn btn-outline-primary" type="button" name="ingresar" [routerLink]="['inicio']" (click)="funcion()">Ingresar</button>
+    <button class="btn btn-outline-primary" type="button" name="ingresar"
+        (click)="login(usuario.value, contrasena.value)">Ingresar</button>
 
 </div>

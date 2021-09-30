@@ -3,19 +3,22 @@
         <a class="navbar-brand" [routerLink]="['inicio']">
             <img src="/assets/images/mediderm.png" alt="" width="101,9" height="74,91">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link " [routerLink]="['sedes']" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link " [routerLink]="['sedes']" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         Sedes
                     </a>
 
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" [routerLink]="['servicios']" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" [routerLink]="['servicios']" id="navbarDropdownMenuLink"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Servicios
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -25,7 +28,8 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" [routerLink]="['medicos']" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" [routerLink]="['medicos']" id="navbarDropdownMenuLink"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Medicos
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -42,17 +46,19 @@
                 </li>
             </ul>
             <div class="d-flex">
-                <div id="iniciar">
-                    <button class="btn btn-outline-danger me-2" [routerLink]="['registro']" type="button">Sign Up</button>
-                    <button id="ocultar-mostrar" class="btn btn-outline-primary" [routerLink]="['login']" type="button">Log In</button>
+                <div id="iniciar" *ngIf="noSesion()">
+                    <button class="btn btn-outline-danger me-2" [routerLink]="['registro']" type="button">Sign
+                        Up</button>
+                    <button id="ocultar-mostrar" class="btn btn-outline-primary" [routerLink]="['login']"
+                        type="button">Log In</button>
                 </div>
-                <div id="iniciado" style="display: none;" class="dropdown">
+                <div id="iniciado" *ngIf="!noSesion()" class="dropdown">
                     <button class="btn btn-primary dropdown-toogle" type="button" data-bs-toggle="dropdown">
                         <img src="/assets/images/login.png" width="30" height="30">
                     </button>
                     <div class="dropdown-menu">
                         <a class="nav-link" [routerLink]="['historia medica']" class="dropdown-item">Perfil</a>
-                        <a class="nav-link" [routerLink]="['inicio']" class="dropdown-item" (click)="funcion()">Salir</a>
+                        <a class="nav-link" [routerLink]="['inicio']" class="dropdown-item" (click)="logout()">Salir</a>
                     </div>
                 </div>
             </div>

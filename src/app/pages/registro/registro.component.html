@@ -8,13 +8,13 @@
         <label class="col col-form-label">Nombres: </label>
         <div class="col">
 
-            <input class="form-control" type="text" placeholder="Nombres" formControlName="nombre">
+            <input class="form-control" type="text" placeholder="Nombres" #nombre>
 
         </div>
         <label class="col col-form-label">Apellidos: </label>
         <div class="col">
 
-            <input class="form-control" type="text" placeholder="Apellidos" formControlName="apellido">
+            <input class="form-control" type="text" placeholder="Apellidos" #apellido>
 
         </div>
 
@@ -26,13 +26,13 @@
         <label class="col col-form-label">Correo: </label>
         <div class="col">
 
-            <input class="form-control" type="text" placeholder="Correo" formControlName="correo">
+            <input class="form-control" type="text" placeholder="Correo" #correo>
 
         </div>
         <label class="col col-form-label">Fecha de Nacimiento: </label>
         <div class="col">
 
-            <input class="form-control" type="date" formControlName="fechanacimiento">
+            <input class="form-control" type="date" #fecha>
 
         </div>
 
@@ -44,13 +44,13 @@
         <label class="col col-form-label">Teléfono: </label>
         <div class="col">
 
-            <input class="form-control" type="text" placeholder="ej. 1234567890" formControlName="telefono">
+            <input class="form-control" type="text" placeholder="ej. 1234567890" #telefono>
 
         </div>
         <label class="col col-form-label">Contraseña: </label>
         <div class="col">
 
-            <input class="form-control" type="password" placeholder="********" formControlName="constrasena">
+            <input class="form-control" type="password" placeholder="********" #contrasena>
 
         </div>
 
@@ -62,7 +62,7 @@
         <label class="col col-form-label">Sexo: </label>
         <div class="col">
 
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example" #sexo>
                 <option selected>Selecciona el Sexo</option>
                 <option value="M">Masculino</option>
                 <option value="F">Femenino</option>
@@ -72,13 +72,32 @@
         <label class="col col-form-label">Confirmar Contraseña: </label>
         <div class="col">
 
-            <input class="form-control" type="password" placeholder="********" formControlName="cocontrasena">
+            <input class="form-control" type="password" placeholder="********" #cocontrasena>
 
         </div>
 
     </div>
     <br>
 
-    <!--<button class="btn btn-outline-primary mt-5" type="button" name="ingresar" [routerLink]="['inicio']">Registrarse</button>-->>
+    <div class="form-group row me-5">
+
+        <label class="col col-form-label">Usuario: </label>
+        <div class="col">
+
+            <input class="form-control" type="text" placeholder="Usuario" #usuario>
+
+        </div>
+        <label class="col col-form-label">Dirección: </label>
+        <div class="col">
+
+            <input class="form-control" type="text" placeholder="Cll. 4" #direccion>
+
+        </div>
+
+    </div>
+    <br>
+
+    <button class="btn btn-outline-primary mt-5" type="button" name="ingresar"
+        (click)="registrar(nombre.value, apellido.value, correo.value, fecha.value, telefono.value, contrasena.value, sexo.value, cocontrasena.value, usuario.value, direccion.value)">Registrarse</button>
 
 </div>
