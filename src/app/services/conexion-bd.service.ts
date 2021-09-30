@@ -16,11 +16,11 @@ export class ConexionBDService {
   public getList(dir:string){
     return this.db.list(dir);
   }
-
+  //('Usuarios', 'Nombre', 'estabq')
   public getByQuery(dir:string, orden:string, query:any){
     return this.db.list(dir, ref => ref.orderByChild(orden).equalTo(query));
   }
-
+  //('Usuarios', token)
   public getByKey(dir:string, query:any){
     return this.db.list(dir, ref => ref.orderByKey().equalTo(query));
   }
