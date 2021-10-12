@@ -17,15 +17,6 @@ export class NavbarComponent implements OnInit {
       this.medicos = data ;
     });
 }
-  
-  funcion(): void {
-    let x = document.getElementById("iniciado");
-    let y = document.getElementById("iniciar");
-    if(x != null && y != null){
-      x.style.display = "none";
-      y.style.display = "block";
-    }
-  }
 
   noSesion(){
     if(localStorage.getItem('token') == null || localStorage.getItem('token') == undefined){

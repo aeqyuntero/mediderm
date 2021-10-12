@@ -1,116 +1,178 @@
-<app-loading *ngIf="loading" class="m-5"></app-loading>
-
-<div class="container text-center mt-5 mb-5" *ngIf="!loading">
-
-    <!-- <div>
-        <button class="btn btn-secondary active" [routerLink]="['editar']">
-            Datos
-        </button>
-        <button class="btn btn-secondary" (click)="funcionDivInfo()">
-            Historia Clínica
-        </button>
-    </div> -->
-
-    <img src="/assets/images/login.png">
-    <hr>
-
-    <div class="form-group row me-5">
-
-        <label class="col col-form-label">Nombres: </label>
-        <div class="col">
-
-            <input class="form-control" type="text" placeholder="Nombres" value="{{nombre}}" #inombre disabled>
-
-        </div>
-        <label class="col col-form-label">Apellidos: </label>
-        <div class="col">
-
-            <input class="form-control" type="text" placeholder="Apellidos" value="{{apellido}}" #iapellido disabled>
-
+<div class="row">
+    <div class="row-cols-1">
+        <div class="list-group" id="list-tab" role="tablist">
+            <label class="btn btn-secondary active" (click)="funcionDivHistoria()">
+                Datos
+            </label>
+            <label class="btn btn-secondary" (click)="funcionDivInfo()">
+                Historia Clínica
+            </label>
+            <!--<label class="btn btn-secondary">
+                Por definir
+            </label>
+            <label class="btn btn-secondary">
+                Por definir
+            </label>-->
         </div>
 
-    </div>
-    <br>
+        <div id="info" class="container text-center mt-5 mb-5" *ngIf="div_info">
 
-    <div class="form-group row me-5">
 
-        <label class="col col-form-label">Correo: </label>
-        <div class="col">
+            <!-- <div>
+                <button class="btn btn-secondary active" [routerLink]="['editar']">
+                    Datos
+                </button>
+                <button class="btn btn-secondary" (click)="funcionDivInfo()">
+                    Historia Clínica
+                </button>
+            </div> -->
 
-            <input class="form-control" type="text" placeholder="Correo" value="{{correo}}" #icorreo disabled>
+            <img src="/assets/images/login.png">
+            <hr>
+
+            <div class="form-group row me-5">
+
+                <label class="col col-form-label">Nombres: </label>
+                <div class="col">
+
+                    <input class="form-control" type="text" placeholder="Nombres" value="{{datosU.nombre}}" #inombre disabled>
+
+                </div>
+                <label class="col col-form-label">Apellidos: </label>
+                <div class="col">
+
+                    <input class="form-control" type="text" placeholder="Apellidos" value="{{datosU.apellido}}" #iapellido disabled>
+
+                </div>
+
+            </div>
+            <br>
+
+            <div class="form-group row me-5">
+
+                <label class="col col-form-label">Correo: </label>
+                <div class="col">
+
+                    <input class="form-control" type="text" placeholder="Correo" value="{{datosU.correo}}" #icorreo disabled>
+
+                </div>
+                <label class="col col-form-label">Fecha de Nacimiento: </label>
+                <div class="col">
+
+                    <input class="form-control" type="date" value="{{datosU.fecha}}" #ifecha disabled>
+
+                </div>
+
+            </div>
+            <br>
+
+            <div class="form-group row me-5">
+
+                <label class="col col-form-label">Teléfono: </label>
+                <div class="col">
+
+                    <input class="form-control" type="text" value="{{datosU.telefono}}" placeholder="ej. 1234567890" #itelefono disabled>
+
+                </div>
+                <label class="col col-form-label">Contraseña: </label>
+                <div class="col">
+
+                    <input class="form-control" type="password" value="{{datosU.contrasena}}" placeholder="****" #icontrasena disabled>
+
+                </div>
+
+            </div>
+            <br>
+
+            <div class="form-group row me-5">
+
+                <label class="col col-form-label">Sexo: </label>
+                <div class="col">
+
+                    <select class="form-select" aria-label="Default select example" #isexo disabled>
+                        <option value="M" [selected]="esMasculino">Masculino</option>
+                        <option value="F" [selected]="!esMasculino">Femenino</option>
+                    </select>
+
+                </div>
+                <label class="col col-form-label">Confirmar Contraseña: </label>
+                <div class="col">
+
+                    <input class="form-control" type="password" value="{{datosU.contrasena}}" placeholder="****" #icocontrasena disabled>
+
+                </div>
+
+            </div>
+            <br>
+
+            <div class="form-group row me-5">
+
+                <label class="col col-form-label">Usuario: </label>
+                <div class="col">
+
+                    <input class="form-control" type="text" value="{{datosU.nomUsuario}}" placeholder="Usuario" #iusuario disabled>
+
+                </div>
+                <label class="col col-form-label">Dirección: </label>
+                <div class="col">
+
+                    <input class="form-control" type="text" placeholder="Cll. 4" value="{{datosU.direccion}}" #idireccion disabled>
+
+                </div>
+
+            </div>
+            <br>
+
+            <button class="btn btn-primary" [routerLink]="['/editar']">
+                Editar Datos
+            </button>
 
         </div>
-        <label class="col col-form-label">Fecha de Nacimiento: </label>
-        <div class="col">
 
-            <input class="form-control" type="date" value="{{fecha}}" #ifecha disabled>
+        <!--
+        <div style="display: none;" id="historia" class="col">
+            <img src="/assets/images/historia.png" width="1500" height="1000">
+        </div>
+        -->
+        <div style="display:none;" id="historia" class="bg-light card mb-3 mx-auto" style="max-width: 840px; " *ngIf='div_his'>
+            <div class="row no-gutters " style="width: auto; margin: auto auto">
+                <div class="card-header">
+                    <h2 class="card-title">Mi historia Clinica</h2>
+                </div>
 
+                <div class="col-md-6 ml-4">
+                    <div class="card-body">
+
+
+
+                    </div>
+                </div>
+                <h2>Cronologia</h2>
+
+                <div class="card mb-3" *ngFor="let item of historia">
+                    <div class="card-header text-white bg-success">
+                        <p>Tipo: {{item.Tipo}} </p>
+
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+
+                                <p class="card-text">{{item.Formula}}</p>
+                                <p class="card-text">{{item.Medico}}</p>
+                                <p class="card-text"><small class="text-muted">{{item.Fecha}}</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
         </div>
 
-    </div>
-    <br>
-
-    <div class="form-group row me-5">
-
-        <label class="col col-form-label">Teléfono: </label>
-        <div class="col">
-
-            <input class="form-control" type="text" value="{{telefono}}" placeholder="ej. 1234567890" #itelefono
-                disabled>
-
-        </div>
-        <label class="col col-form-label">Contraseña: </label>
-        <div class="col">
-
-            <input class="form-control" type="password" value="{{contrasena}}" placeholder="****" #icontrasena disabled>
-
-        </div>
-
-    </div>
-    <br>
-
-    <div class="form-group row me-5">
-
-        <label class="col col-form-label">Sexo: </label>
-        <div class="col">
-
-            <select class="form-select" aria-label="Default select example" #isexo disabled>
-                <option value="M" [selected]="esMasculino">Masculino</option>
-                <option value="F" [selected]="!esMasculino">Femenino</option>
-            </select>
-
-        </div>
-        <label class="col col-form-label">Confirmar Contraseña: </label>
-        <div class="col">
-
-            <input class="form-control" type="password" value="{{contrasena}}" placeholder="****" #icocontrasena
-                disabled>
-
-        </div>
-
-    </div>
-    <br>
-
-    <div class="form-group row me-5">
-
-        <label class="col col-form-label">Usuario: </label>
-        <div class="col">
-
-            <input class="form-control" type="text" value="{{nomUsuario}}" placeholder="Usuario" #iusuario disabled>
-
-        </div>
-        <label class="col col-form-label">Dirección: </label>
-        <div class="col">
-
-            <input class="form-control" type="text" placeholder="Cll. 4" value="{{direccion}}" #idireccion disabled>
-
-        </div>
-
-    </div>
-    <br>
-
-    <button class="btn btn-primary" [routerLink]="['/editar']">
-        Editar Datos
-    </button>
-
-</div>
+        <app-loading *ngIf="loading" class="m-5"></app-loading>
