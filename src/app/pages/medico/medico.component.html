@@ -11,7 +11,7 @@
 
                 <p class="card-text">{{item.Descripcion}}</p>
                 <a [routerLink]="['/medicos']" class="btn btn-danger mr-6">Regresar</a>
-                <a [routerLink]="['/agendacita',item.Nombre]" class="btn btn-primary ml-6 ">Agendar</a>
+                <a *ngIf="logged!='undefined'" [routerLink]="['/agendacita',item.Nombre]" class="btn btn-primary ml-6 ">Agendar</a>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>

@@ -14,9 +14,10 @@ export class MedicoComponent implements OnInit {
 
   constructor(private db: ConexionBDService, private _activatedRoute: ActivatedRoute) {   }
 
-  
+  logged: string = "";
   ngOnInit(): void {
     this.id = this._activatedRoute.snapshot.paramMap.get('id');
+    this.logged = localStorage.getItem('token') || "undefined";
     if (this.id !== 'nuevo'){
       console.log("id: "+this.id);
       this.db.getByQuery("/Medicos", "Codigo_agenda", Number(this.id)).valueChanges().subscribe(data => {
