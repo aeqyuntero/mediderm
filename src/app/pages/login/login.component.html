@@ -1,33 +1,47 @@
-<div class="container text-center mt-5 mb-5">
+<app-loading *ngIf="loading" class="m-5"></app-loading>
 
-    <img src="/assets/images/login.png">
-    <hr>
+<div *ngIf="!loading" class="container text-center mt-5 mb-5 animated fadeIn">
+    <form autocomplete="off" (ngSubmit)="login(formT)" #formT="ngForm">
 
-    <div class="form-group row">
+        <img src="/assets/images/login.png">
+        <hr>
 
-        <label class="col col-form-label">Usuario: </label>
-        <div class="col">
+        <div class="form-group row">
 
-            <input class="form-control" type="text" placeholder="Usuario" #usuario>
+            <label class="col col-form-label">Usuario: </label>
+            <div class="col">
 
-        </div>
+                <input class="form-control" type="text" name="usuario"
+                    [class.is-invalid]="iusuario.invalid && iusuario.touched" [ngModel]="usuario.nomusuario"
+                    placeholder="Usuario" minlength="1" required #iusuario="ngModel">
 
-    </div>
-    <br>
+                <small *ngIf="iusuario.invalid && iusuario.touched" class="form-text text-danger">El usuario no puede
+                    estar vacío</small>
 
-    <div class="form-group row">
-
-        <label class="col col-form-label">Contraseña: </label>
-        <div class="col">
-
-            <input class="form-control" type="passwowrd" placeholder="Contraseña" #contrasena>
+            </div>
 
         </div>
+        <br>
 
-    </div>
-    <br>
+        <div class="form-group row">
 
-    <button class="btn btn-outline-primary" type="button" name="ingresar"
-        (click)="login(usuario.value, contrasena.value)">Ingresar</button>
+            <label class="col col-form-label">Contraseña: </label>
+            <div class="col">
 
+                <input class="form-control" type="password" name="contrasena"
+                    [class.is-invalid]="icontrasena.invalid && icontrasena.touched" [ngModel]="usuario.contrasena"
+                    placeholder="Usuario" minlength="5" required #icontrasena="ngModel">
+
+                <small *ngIf="icontrasena.invalid && icontrasena.touched" class="form-text text-danger">La contraseña
+                    debe ser minimo de 5 letras</small>
+
+            </div>
+
+        </div>
+        <br>
+
+        <button class="btn btn-outline-primary" [class.disabled]="iusuario.invalid || icontrasena.invalid" type="submit"
+            name="ingresar">Ingresar</button>
+
+    </form>
 </div>

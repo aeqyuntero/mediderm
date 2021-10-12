@@ -1,4 +1,6 @@
-<div>
+<app-loading *ngIf="loading" class="m-5"></app-loading>
+
+<div *ngIf="!loading">
     <div class="row ">
         <div class="col-sm ">
             <div class="card bg-dark ">

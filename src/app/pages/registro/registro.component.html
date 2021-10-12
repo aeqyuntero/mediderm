@@ -1,103 +1,155 @@
-<div class="container text-center mt-5 mb-5">
+<app-loading *ngIf="loading" class="m-5"></app-loading>
 
-    <img src="/assets/images/login.png">
-    <hr>
+<div *ngIf="!loading" class="container text-center mt-5 mb-5">
+    <form autocomplete="off" (ngSubmit)="registrar(formT)" #formT="ngForm">
 
-    <div class="form-group row me-5">
+        <img src="/assets/images/login.png">
+        <hr>
 
-        <label class="col col-form-label">Nombres: </label>
-        <div class="col">
+        <div class="form-group row me-5">
 
-            <input class="form-control" type="text" placeholder="Nombres" #nombre>
+            <label class="col col-form-label">Nombres: </label>
+            <div class="col">
 
-        </div>
-        <label class="col col-form-label">Apellidos: </label>
-        <div class="col">
+                <input class="form-control" type="text" name="nombre"
+                    [class.is-invalid]="inombre.invalid && inombre.touched" [ngModel]="usuario.nombre"
+                    placeholder="Nombre" minlength="3" required #inombre="ngModel">
 
-            <input class="form-control" type="text" placeholder="Apellidos" #apellido>
+                <small *ngIf="inombre.invalid && inombre.touched" class="form-text text-danger">El nombre debe ser de 3
+                    letras como mínimo</small>
 
-        </div>
+            </div>
+            <label class="col col-form-label">Apellidos: </label>
+            <div class="col">
 
-    </div>
-    <br>
+                <input class="form-control" type="text" name="apellido"
+                    [class.is-invalid]="iapellido.invalid && iapellido.touched" [ngModel]="usuario.apellido"
+                    placeholder="Apellido" minlength="3" required #iapellido="ngModel">
 
-    <div class="form-group row me-5">
+                <small *ngIf="iapellido.invalid && iapellido.touched" class="form-text text-danger">El apellido debe ser
+                    de 3 letras como mínimo</small>
 
-        <label class="col col-form-label">Correo: </label>
-        <div class="col">
-
-            <input class="form-control" type="text" placeholder="Correo" #correo>
-
-        </div>
-        <label class="col col-form-label">Fecha de Nacimiento: </label>
-        <div class="col">
-
-            <input class="form-control" type="date" #fecha>
+            </div>
 
         </div>
+        <br>
 
-    </div>
-    <br>
+        <div class="form-group row me-5">
 
-    <div class="form-group row me-5">
+            <label class="col col-form-label">Correo: </label>
+            <div class="col">
 
-        <label class="col col-form-label">Teléfono: </label>
-        <div class="col">
+                <input class="form-control" type="email" placeholder="Correo electrónico" name="correo"
+                    [ngModel]="usuario.correo" [class.is-invalid]="icorreo.invalid && icorreo.touched"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required #icorreo="ngModel">
 
-            <input class="form-control" type="text" placeholder="ej. 1234567890" #telefono>
+                <small *ngIf="icorreo.invalid && icorreo.touched" class="form-text text-danger">Ingrese un correo
+                    válido</small>
 
-        </div>
-        <label class="col col-form-label">Contraseña: </label>
-        <div class="col">
+            </div>
+            <label class="col col-form-label">Fecha de Nacimiento: </label>
+            <div class="col">
 
-            <input class="form-control" type="password" placeholder="********" #contrasena>
+                <input class="form-control" type="date" name="fecha"
+                    [class.is-invalid]="ifecha.invalid && ifecha.touched" [ngModel]="usuario.fecha"
+                    placeholder="Fecha de nacimiento" minlength="8" required #ifecha="ngModel">
 
-        </div>
+                <small *ngIf="ifecha.invalid && ifecha.touched" class="form-text text-danger">La fecha de nacimiento
+                    debe
+                    ser válida</small>
 
-    </div>
-    <br>
-
-    <div class="form-group row me-5">
-
-        <label class="col col-form-label">Sexo: </label>
-        <div class="col">
-
-            <select class="form-select" aria-label="Default select example" #sexo>
-                <option selected>Selecciona el Sexo</option>
-                <option value="M">Masculino</option>
-                <option value="F">Femenino</option>
-            </select>
+            </div>
 
         </div>
-        <label class="col col-form-label">Confirmar Contraseña: </label>
-        <div class="col">
+        <br>
 
-            <input class="form-control" type="password" placeholder="********" #cocontrasena>
+        <div class="form-group row me-5">
+
+            <label class="col col-form-label">Teléfono: </label>
+            <div class="col">
+
+                <input class="form-control" type="number" name="telefono"
+                    [class.is-invalid]="itelefono.invalid && itelefono.touched" [ngModel]="usuario.telefono"
+                    placeholder="ej: 1234567890" minlength="10" required #itelefono="ngModel">
+
+                <small *ngIf="itelefono.invalid && itelefono.touched" class="form-text text-danger">El teléfono debe ser
+                    minimo de 10 numeros</small>
+
+            </div>
+            <label class="col col-form-label">Contraseña: </label>
+            <div class="col">
+
+                <input class="form-control" type="password" name="contrasena"
+                    [class.is-invalid]="icontrasena.invalid && icontrasena.touched" [ngModel]="usuario.contrasena"
+                    placeholder="*****" minlength="5" required #icontrasena="ngModel">
+
+                <small *ngIf="icontrasena.invalid && icontrasena.touched" class="form-text text-danger">La contraseña
+                    debe ser minimo de 5 letras</small>
+
+            </div>
 
         </div>
+        <br>
 
-    </div>
-    <br>
+        <div class="form-group row me-5">
 
-    <div class="form-group row me-5">
+            <label class="col col-form-label">Sexo: </label>
+            <div class="col">
 
-        <label class="col col-form-label">Usuario: </label>
-        <div class="col">
+                <select class="form-control" [class.is-invalid]=" isexo.invalid && isexo.touched " name="sexo" required
+                    [ngModel]="usuario.sexo" #isexo="ngModel">
+                    <option value="M" selected>Masculino</option>
+                    <option value="F">Femenino</option>
+                </select>
 
-            <input class="form-control" type="text" placeholder="Usuario" #usuario>
+            </div>
+            <label class="col col-form-label">Confirmar Contraseña: </label>
+            <div class="col">
+
+                <input class="form-control" type="password" name="cocontrasena"
+                    [class.is-invalid]="(icocontrasena.invalid && icocontrasena.touched) || icontrasena.value != icocontrasena.value"
+                    [ngModel]="cocontrasena" placeholder="*****" minlength="5" required #icocontrasena="ngModel">
+
+                <small *ngIf="icocontrasena.invalid && icocontrasena.touched" class="form-text text-danger">La
+                    confirmación
+                    de la contraseña debe ser igual a la contraseña</small>
+
+            </div>
 
         </div>
-        <label class="col col-form-label">Dirección: </label>
-        <div class="col">
+        <br>
 
-            <input class="form-control" type="text" placeholder="Cll. 4" #direccion>
+        <div class="form-group row me-5">
+
+            <label class="col col-form-label">Usuario: </label>
+            <div class="col">
+
+                <input class="form-control" type="text" name="usuario"
+                    [class.is-invalid]="iusuario.invalid && iusuario.touched" [ngModel]="usuario.nomusuario"
+                    placeholder="Usuario" minlength="1" required #iusuario="ngModel">
+
+                <small *ngIf="iusuario.invalid && iusuario.touched" class="form-text text-danger">El usuario no puede
+                    estar
+                    vacío</small>
+
+            </div>
+            <label class="col col-form-label">Dirección: </label>
+            <div class="col">
+
+                <input class="form-control" type="text" name="direccion"
+                    [class.is-invalid]="idireccion.invalid && idireccion.touched" [ngModel]="usuario.direccion"
+                    placeholder="Ej: Cll. 12 # 34A - 04 Sur" minlength="1" required #idireccion="ngModel">
+
+                <small *ngIf="idireccion.invalid && idireccion.touched" class="form-text text-danger">La direccion no
+                    puede
+                    estar vacía</small>
+
+            </div>
 
         </div>
+        <br>
 
-    </div>
-    <br>
+        <button class="btn btn-outline-primary mt-5" type="submit" name="registrar">Registrar</button>
 
-    <button class="btn btn-outline-primary mt-5" type="button" name="ingresar"
-        (click)="registrar(nombre.value, apellido.value, correo.value, fecha.value, telefono.value, contrasena.value, sexo.value, cocontrasena.value, usuario.value, direccion.value)">Registrarse</button>
-
+    </form>
 </div>

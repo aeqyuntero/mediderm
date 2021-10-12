@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { DatePickerModule, TimePickerModule } from "@syncfusion/ej2-angular-calendars";
-import { FormsModule } from '@angular/forms';
+import {
+  DatePickerModule,
+  TimePickerModule,
+} from '@syncfusion/ej2-angular-calendars';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Páginas
 import { AppRoutingModule } from './app-routing.module';
@@ -21,7 +24,6 @@ import { HistoriaMedicaComponent } from './pages/historia-medica/historia-medica
 import { HttpClientModule } from '@angular/common/http';
 import { MedicoComponent } from './pages/medico/medico.component';
 
-
 //Servicios
 
 import { AngularFireModule } from '@angular/fire/compat';
@@ -30,6 +32,7 @@ import { environment } from '../environments/environment';
 import { ConexionBDService } from './services/conexion-bd.service';
 import { LoadingComponent } from './components/loading/loading.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginMedicosComponent } from './pages/login-medicos/login-medicos.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EditarUsuarioComponent,
     HistoriaMedicaComponent,
     MedicoComponent,
-    LoadingComponent
+    LoadingComponent,
+    LoginMedicosComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,14 +60,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TimePickerModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
-  providers: [
-    ConexionBDService
-  ],
-  bootstrap: [
-    AppComponent
-  ]
+  providers: [ConexionBDService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
