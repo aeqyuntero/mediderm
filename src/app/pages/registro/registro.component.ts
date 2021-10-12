@@ -19,7 +19,7 @@ export class RegistroComponent implements OnInit {
     telefono: '',
     contrasena: '',
     sexo: '',
-    nomusuario: '',
+    nomUsuario: '',
     direccion: '',
   };
 
@@ -40,7 +40,7 @@ export class RegistroComponent implements OnInit {
   }
 
   registrar(form: NgForm) {
-    /* if (form.invalid) {
+    if (form.invalid) {
       Object.values(form.controls).forEach((control) => {
         control.markAsTouched();
       });
@@ -53,21 +53,33 @@ export class RegistroComponent implements OnInit {
       });
 
       return;
-    } */
+    }
 
     /*this.data.registrarUsuario(usuario).subscribe(resp => {
       id = resp;
       this.login(id);
     });*/
 
+    this.usuario = {
+      nombre: form.value.nombre,
+      apellido: form.value.apellido,
+      correo: form.value.correo,
+      fecha: form.value.fecha,
+      telefono: form.value.telefono,
+      contrasena: form.value.contrasena,
+      sexo: form.value.sexo,
+      nomUsuario: form.value.usuario,
+      direccion: form.value.direccion,
+    };
+
     this.login(String(this.db.set('Usuarios', this.usuario).key));
 
-    /* Swal.fire({
+    Swal.fire({
       title: 'Bien',
       text: 'Usuario registrado con exito',
       icon: 'success',
       confirmButtonText: 'Ok',
-    }); */
+    });
   }
 
   login(id: string) {
@@ -91,6 +103,6 @@ export interface Usuario {
   telefono: string;
   contrasena: string;
   sexo: string;
-  nomusuario: string;
+  nomUsuario: string;
   direccion: string;
 }

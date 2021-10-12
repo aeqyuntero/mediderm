@@ -125,7 +125,7 @@
             <div class="col">
 
                 <input class="form-control" type="text" name="usuario"
-                    [class.is-invalid]="iusuario.invalid && iusuario.touched" [ngModel]="usuario.nomusuario"
+                    [class.is-invalid]="iusuario.invalid && iusuario.touched" [ngModel]="usuario.nomUsuario"
                     placeholder="Usuario" minlength="1" required #iusuario="ngModel">
 
                 <small *ngIf="iusuario.invalid && iusuario.touched" class="form-text text-danger">El usuario no puede
