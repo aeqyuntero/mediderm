@@ -17,15 +17,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  funcion(): void {
-    let x = document.getElementById("iniciado");
-    let y =document.getElementById("iniciar")
-    if(x != null && y != null){
-      x.style.display = "block";
-      y.style.display = "none";
-    }
-  }
-
   login(usuario: any, contrasena: any){
 
     this.db.getObject('Usuarios').valueChanges().subscribe((resp: any) => {

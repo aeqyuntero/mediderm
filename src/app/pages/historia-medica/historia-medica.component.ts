@@ -9,73 +9,46 @@ import { DataService } from '../dataservices/data.service';
 })
 export class HistoriaMedicaComponent implements OnInit {
 
-  constructor(private db: ConexionBDService, private data: DataService) { }
-  
-
+  datosU: any;
+  esMasculino = false;
+  loading = true;
   historia: any[] = [];
-  ngOnInit(): void {
-    this.db.getList("/Historia_c").valueChanges().subscribe((data:any) => {
-      this.historia = data ;
-    });
-}
+  div_his = false;
+  div_info = false;
 
+  constructor(private db: ConexionBDService, private data: DataService) { }
+
+  ngOnInit(): void {
+    this.obtenerUsuario();
+  }
 
   funcionDivInfo(): void {
-    let div = document.getElementById('info');
-    let div2 = document.getElementById('historia');
-    if (div != null && div2 != null) {
-      div.style.display = 'none';
-      div2.style.display = 'block';
-    }
+    this.div_his = true;
+    this.div_info = false;
   }
 
   funcionDivHistoria(): void {
-    let div = document.getElementById('info');
-    let div2 = document.getElementById('historia');
-    if (div != null && div2 != null) {
-      div.style.display = 'block';
-      div2.style.display = 'none';
-    }
+    this.div_his = false;
+    this.div_info = true;
   }
 
-  nombre = '';
-  apellido = '';
-  correo = '';
-  fecha = '';
-  telefono = '';
-  contrasena = '';
-  sexo = '';
-  nomUsuario = '';
-  direccion = '';
-
-  esMasculino = false;
-  loading = true;
-
-  obtenerUsuario() {
+  async obtenerUsuario() {
+    console.log("obteniendo usuario");
     const id = localStorage.getItem('token');
-    console.log(id);
-
     if (id) {
-      this.data.obtenerUsuario(id).subscribe((resp: any) => {
-        this.nombre = resp.nombre;
-        this.apellido = resp.apellido;
-        this.correo = resp.correo;
-        this.fecha = resp.fecha;
-        this.telefono = resp.telefono;
-        this.contrasena = resp.contrasena;
-        this.sexo = resp.sexo;
-        this.nomUsuario = resp.nomUsuario;
-        this.direccion = resp.direccion;
+      this.db.getByKey("/Usuarios", id).valueChanges().subscribe((resp: any) => {
+        this.datosU = resp[0];
 
-        console.log(this.nombre);
-
-        if (this.sexo == 'M') {
+        if (this.datosU.sexo == 'M') {
           this.esMasculino = true;
         } else {
           this.esMasculino = false;
         }
-
+        this.db.getByQuery("/Historia_c", "Usuario", resp[0].nomUsuario).valueChanges().subscribe((data:any) => {
+          this.historia = data ;
+        });
         this.loading = false;
+        this.div_info = true;
       });
     }
   }
